@@ -67,6 +67,8 @@ def validate_inputs(raw_data: dict[str, str]) -> tuple[UsageInput | None, dict[s
         errors["social_media"] = "Social media usage cannot exceed total screen time."
     if cleaned["productive_hours"] > 24:
         errors["productive_hours"] = "Productive hours cannot exceed 24 hours."
+    if cleaned["productive_hours"] > cleaned["screen_time"]:
+        errors["productive_hours"] = "Productive hours should not exceed total screen time."
     if cleaned["app_switches"] > 1000:
         errors["app_switches"] = "App switches look unusually high. Use a daily count under 1000."
 
