@@ -130,8 +130,8 @@
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     {% if result %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script>
         const timeDistribution = {{ result.time_distribution | tojson }};
         const productivityDistribution = {{ result.productivity_distribution | tojson }};
