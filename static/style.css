@@ -131,8 +131,18 @@ body {
 }
 
 .score-card {
-    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 18px;
+}
+
+.score-card > div:first-child {
+    min-width: 180px;
+}
+
+.score-card .score-progress {
+    flex: 1;
 }
 
 .score-card h2 {
