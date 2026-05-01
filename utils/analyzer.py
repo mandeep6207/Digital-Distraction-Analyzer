@@ -184,6 +184,8 @@ def build_suggestions(data: UsageInput, score: int) -> list[str]:
         suggestions.append("Increase deep work sessions by blocking distraction-free time.")
     if data.app_switches >= 60:
         suggestions.append("Batch similar tasks to reduce context switching.")
+    if data.social_media and data.social_media / max(data.screen_time, 1) >= 0.35:
+        suggestions.append("Move social apps off your home screen to reduce impulse checks.")
     if score > 50:
         suggestions.append("Use focus techniques like Pomodoro or 50/10 work cycles.")
     if data.screen_time >= 8:
