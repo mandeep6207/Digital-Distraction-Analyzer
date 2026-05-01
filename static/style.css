@@ -246,4 +246,18 @@ body {
     .score-card h2 {
         font-size: 2.7rem;
     }
+
+    .score-card {
+        display: grid;
+    }
+
+    .metric-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
 }
