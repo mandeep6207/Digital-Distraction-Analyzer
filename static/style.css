@@ -104,6 +104,32 @@ body {
     gap: 24px;
 }
 
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.metric {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.metric span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.metric strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 1.25rem;
+}
+
 .score-card {
     display: grid;
     gap: 18px;
