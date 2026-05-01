@@ -100,10 +100,11 @@ def analyze_distraction(data: UsageInput) -> dict:
         ]
     )
 
-    screen_component = _normalize(frame.at[0, "screen_time"], MAX_SCREEN_TIME) * SCORING_WEIGHTS["screen_time"]
-    social_component = _normalize(frame.at[0, "social_media"], MAX_SOCIAL_MEDIA) * SCORING_WEIGHTS["social_media"]
-    switch_component = _normalize(frame.at[0, "app_switches"], MAX_APP_SWITCHES) * SCORING_WEIGHTS["app_switches"]
-    productivity_component = (1 - _normalize(frame.at[0, "productive_hours"], MAX_PRODUCTIVE_HOURS)) * SCORING_WEIGHTS["productive_hours"]
+    row = frame.iloc[0]
+    screen_component = _normalize(row.screen_time, MAX_SCREEN_TIME) * SCORING_WEIGHTS["screen_time"]
+    social_component = _normalize(row.social_media, MAX_SOCIAL_MEDIA) * SCORING_WEIGHTS["social_media"]
+    switch_component = _normalize(row.app_switches, MAX_APP_SWITCHES) * SCORING_WEIGHTS["app_switches"]
+    productivity_component = (1 - _normalize(row.productive_hours, MAX_PRODUCTIVE_HOURS)) * SCORING_WEIGHTS["productive_hours"]
 
     score = round(screen_component + social_component + switch_component + productivity_component)
     score = min(max(score, 0), 100)
