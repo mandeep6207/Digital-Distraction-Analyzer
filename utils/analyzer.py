@@ -155,8 +155,12 @@ def focus_class(score: int) -> str:
 def build_insights(data: UsageInput, score: int) -> list[str]:
     insights = []
 
+    social_share = data.social_media / data.screen_time if data.screen_time else 0
+
     if data.social_media >= 2.5:
         insights.append("High social media usage detected.")
+    if social_share >= 0.4:
+        insights.append("Social media takes up a large share of your total screen time.")
     if data.screen_time >= 8:
         insights.append("Excessive screen time may be reducing focus.")
     if data.app_switches >= 80:
